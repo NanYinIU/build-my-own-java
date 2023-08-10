@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    // 需要使用 2.4.0 之前的版本，nacos-config-spring-boot-starter 使用时会出现缺少类
+    id 'org.springframework.boot' version '2.3.12.RELEASE'
+    id 'io.spring.dependency-management' version '1.1.2'
+}
+
+group = 'com.nanyin'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '11'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'cn.hippo4j:hippo4j-config-spring-boot-starter:1.5.0'
+    implementation 'com.alibaba.boot:nacos-config-spring-boot-starter:0.2.2'
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'com.sun.xml.bind:jaxb-core:2.3.0.1'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.3.1'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

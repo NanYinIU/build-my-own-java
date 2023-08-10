@@ -1,0 +1,60 @@
+#命名的dataId为：hippo4j-nacos.yaml 类型为yaml
+spring:
+  dynamic:
+    thread-pool:
+      default-executor:
+        active-alarm: 90
+        alarm: true
+        allow-core-thread-time-out: true
+        blocking-queue: ResizableCapacityLinkedBlockingQueue
+        capacity-alarm: 85
+        core-pool-size: 1
+        execute-time-out: 100
+        keep-alive-time: 6691
+        maximum-pool-size: 2
+        notify:
+          interval: 5
+          receives: chen.ma
+        queue-capacity: 1
+        rejected-handler: AbortPolicy
+      executors:
+        - active-alarm: 80
+          alarm: true
+          allow-core-thread-time-out: true
+          blocking-queue: ResizableCapacityLinkedBlockingQueue
+          capacity-alarm: 80
+          core-pool-size: 3
+          execute-time-out: 800
+          keep-alive-time: 6691
+          maximum-pool-size: 6
+          notify:
+            interval: 8
+            receives: chen.ma
+          queue-capacity: 1024
+          rejected-handler: AbortPolicy
+          thread-name-prefix: message-consume
+          thread-pool-id: message-consume
+        - active-alarm: 80
+          alarm: true
+          allow-core-thread-time-out: true
+          blocking-queue: ResizableCapacityLinkedBlockingQueue
+          capacity-alarm: 80
+          core-pool-size: 2
+          execute-time-out: 800
+          keep-alive-time: 6691
+          maximum-pool-size: 4
+          notify:
+            interval: 8
+            receives: chen.ma
+          queue-capacity: 1024
+          rejected-handler: AbortPolicy
+          thread-name-prefix: message-produce
+          thread-pool-id: message-produce
+      notify-platforms:
+        - platform: WECHAT
+          secret-key: ec3be378-6c99-45d2-a147-b400c7e94a08
+      web:
+        core-pool-size: 10
+        enable: true
+        keep-alive-time: 1000
+        maximum-pool-size: 100
